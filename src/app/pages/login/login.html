@@ -1,0 +1,37 @@
+<div class="login-container">
+  <div class="login-card">
+
+    <!-- Sağ üstte Üye Ol bağlantısı -->
+    <div class="card-top-right">
+      <span>Hesabınız yok mu?</span>
+      <a href="/register">Üye Olun</a>
+    </div>
+
+    <h4>VBToDo’ya Hoşgeldiniz</h4>
+    <h1>Giriş Yap</h1>
+
+    <form>
+      <label>Kullanıcı adınızı veya email adresinizi giriniz</label>
+      <input type="text" placeholder="Kullanıcı adı veya email adres" />
+
+    <label>Şifrenizi giriniz</label>
+    <div class="input-wrapper">
+    <input [type]="showPassword ? 'text' : 'password'" id="password" placeholder="Şifre" />
+
+    <span class="eye-box" (click)="switchPasswordVisibility()">
+    <i *ngIf="!showPassword" class="fa-regular fa-eye"></i>
+    <i *ngIf="showPassword" class="fa-regular fa-eye-slash"></i>
+    </span>
+    </div>
+
+
+
+      <a class="forgot-link" routerLink="/forgot-password">Şifremi Unuttum</a>
+
+      <button class="login-button" type="submit">GİRİŞ YAP</button>
+    </form>
+
+
+  </div>
+</div>
+

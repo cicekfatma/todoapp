@@ -1,0 +1,43 @@
+<div class="register-container">
+  <div class="register-card">
+
+    <div class="card-top-right">
+      <span>Hesabınız var mı?</span>
+      <a href="/login">Giriş Yapın</a>
+    </div>
+
+    <h4>VBToDo’ya Hoşgeldiniz</h4>
+    <h1>Üye Ol</h1>
+
+    <form>
+      <label>Email adresinizi giriniz</label>
+      <input type="text" placeholder="Email adres" />
+
+      <div class="row">
+        <div class="half">
+          <label>Kullanıcı Adı</label>
+          <input type="text" placeholder="Kullanıcı Adı" />
+        </div>
+        <div class="half">
+          <label>İletişim Numarası</label>
+          <input type="text" placeholder="İletişim Numarası" />
+        </div>
+      </div>
+
+      <label>Şifrenizi Giriniz</label>
+      <div class="input-wrapper">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          id="password"
+          placeholder="Şifre"
+        />
+        <span class="eye-box" (click)="switchPasswordVisibility()">
+          <i *ngIf="!showPassword" class="fa-regular fa-eye"></i>
+          <i *ngIf="showPassword" class="fa-regular fa-eye-slash"></i>
+        </span>
+      </div>
+
+      <button class="register-button" type="submit">ÜYE OL</button>
+    </form>
+  </div>
+</div>

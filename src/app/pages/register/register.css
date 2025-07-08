@@ -1,0 +1,120 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px);
+  background: linear-gradient(to right, #eee 50%, #fdfcf7 50%);
+}
+
+.register-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 30px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  width: 550px;
+    height: 550px;
+  position: relative;
+}
+.register-card h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #222;
+}
+.register-card h1 {
+  font-size: 45px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.card-top-right {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 15px;
+  color: gray;
+}
+
+.card-top-right a {
+  color: #c48a1c;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 4px;
+}
+
+h1 {
+  font-size: 45px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #222;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  margin-bottom: 1rem;
+
+}
+
+.input-wrapper {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.input-wrapper input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px; /* Space for the eye icon */
+}
+
+.eye-box {
+  position: absolute;
+  right: 10px;
+  top: 40%;
+  transform: translateY(-100%);
+  cursor: pointer;
+  color: #888;
+  font-size: 16px;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+}
+
+.half {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.register-button {
+  background-color: #f7aa3e;
+  border: none;
+  padding: 14px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-top: 10px;
+}

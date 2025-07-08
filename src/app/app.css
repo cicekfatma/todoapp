@@ -1,0 +1,44 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 35px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.lang {
+  font-size: 16px;
+  color: #bbb;
+  cursor: pointer;
+}
+
+.lang.active {
+  color: #f5b600;
+  font-weight: bold;
+  border-bottom: 2px solid #f5b600;
+}
