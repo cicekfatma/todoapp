@@ -10,13 +10,13 @@
     <h4>VBToDo’ya Hoşgeldiniz</h4>
     <h1>Giriş Yap</h1>
 
-    <form>
+    <form (ngSubmit)="login()" #loginForm="ngForm">
       <label>Kullanıcı adınızı veya email adresinizi giriniz</label>
-      <input type="text" placeholder="Kullanıcı adı veya email adres" />
+      <input type="text" placeholder="Kullanıcı adı veya email adres" [(ngModel)]="username" name="username" required />
 
     <label>Şifrenizi giriniz</label>
     <div class="input-wrapper">
-    <input [type]="showPassword ? 'text' : 'password'" id="password" placeholder="Şifre" />
+    <input [type]="showPassword ? 'text' : 'password'" id="password" placeholder="Şifre" [(ngModel)]="password" name="password" required />
 
     <span class="eye-box" (click)="switchPasswordVisibility()">
     <i *ngIf="!showPassword" class="fa-regular fa-eye"></i>

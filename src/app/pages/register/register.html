@@ -9,18 +9,18 @@
     <h4>VBToDo’ya Hoşgeldiniz</h4>
     <h1>Üye Ol</h1>
 
-    <form>
+    <form (ngSubmit)="register()" #registerForm="ngForm">
       <label>Email adresinizi giriniz</label>
-      <input type="text" placeholder="Email adres" />
+      <input type="text" placeholder="Email adres" name="email" [(ngModel)]="email" />
 
       <div class="row">
         <div class="half">
           <label>Kullanıcı Adı</label>
-          <input type="text" placeholder="Kullanıcı Adı" />
+          <input type="text" placeholder="Kullanıcı Adı" name="username" [(ngModel)]="username" />
         </div>
         <div class="half">
           <label>İletişim Numarası</label>
-          <input type="text" placeholder="İletişim Numarası" />
+          <input type="text" placeholder="İletişim Numarası" name="phone" [(ngModel)]="phone"  />
         </div>
       </div>
 
@@ -30,6 +30,8 @@
           [type]="showPassword ? 'text' : 'password'"
           id="password"
           placeholder="Şifre"
+          name="password"
+          [(ngModel)]="password"
         />
         <span class="eye-box" (click)="switchPasswordVisibility()">
           <i *ngIf="!showPassword" class="fa-regular fa-eye"></i>
