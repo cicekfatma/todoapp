@@ -9,7 +9,7 @@
 
     <h4>VBToDo’ya Hoşgeldiniz</h4>
     <h1>Giriş Yap</h1>
-
+    <!-- Form elemanları -->
     <form (ngSubmit)="login()" #loginForm="ngForm">
       <label>Kullanıcı adınızı veya email adresinizi giriniz</label>
       <input type="text" placeholder="Kullanıcı adı veya email adres" [(ngModel)]="username" name="username" required />
@@ -23,7 +23,6 @@
     <i *ngIf="showPassword" class="fa-regular fa-eye-slash"></i>
     </span>
     </div>
-
 
 
       <a class="forgot-link" routerLink="/forgot-password">Şifremi Unuttum</a>

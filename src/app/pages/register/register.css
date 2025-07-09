@@ -11,8 +11,8 @@
   padding: 2rem;
   border-radius: 30px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  width: 550px;
-    height: 550px;
+  width: 500px;
+  height: 500px;
   position: relative;
 }
 .register-card h4 {
@@ -22,7 +22,7 @@
   color: #222;
 }
 .register-card h1 {
-  font-size: 45px;
+  font-size: 35px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -34,7 +34,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  font-size: 15px;
+  font-size: 12px;
   color: gray;
 }
 
@@ -43,6 +43,7 @@
   font-weight: bold;
   text-decoration: none;
   margin-top: 4px;
+  font-size: 12px;
 }
 
 h1 {
@@ -61,13 +62,15 @@ h4 {
 form {
   display: flex;
   flex-direction: column;
+  font-size: 13px;
+  color: #717070;
 }
 
 input {
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 14px;
+  font-size: 13px;
   margin-bottom: 1rem;
 
 }
@@ -82,7 +85,7 @@ input {
   padding-right: 40px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 14px; /* Space for the eye icon */
+  font-size: 13px; /* Space for the eye icon */
 }
 
 .eye-box {
@@ -92,7 +95,7 @@ input {
   transform: translateY(-100%);
   cursor: pointer;
   color: #888;
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .row {
