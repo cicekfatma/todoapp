@@ -2,12 +2,14 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
+  // Bileşen tanımı
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink], // Form işlemleri için gerekli
   templateUrl: './register.html',
   styleUrls: ['./register.css'],
 })

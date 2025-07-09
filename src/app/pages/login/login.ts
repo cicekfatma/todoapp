@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common'; // <-- gerekli
 import { FormsModule } from '@angular/forms'; // <-- Form işlemleri için gerekli
 import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   standalone: true, // <-- Standalone bileşen
-  imports: [CommonModule, FormsModule], // <-- *ngIf çalışması için şart
+  imports: [CommonModule, FormsModule, RouterLink], // <-- *ngIf çalışması için şart
   templateUrl: './login.html',
   styleUrls: ['./login.css'] // <-- CSS dosyasını ekliyoruz
 })
@@ -16,6 +18,9 @@ export class Login {
   password = '';
 // Router'ı kullanarak yönlendirme yapabilmek için gerekli
   constructor(private router: Router) {}
+
+
+
 
 // Şifreyi göstermek için bir değişken
   switchPasswordVisibility() {
