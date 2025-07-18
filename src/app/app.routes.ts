@@ -2,8 +2,6 @@ import { Routes } from '@angular/router';
 import { Login } from './pages/login/login';
 import { Register } from './pages/register/register';
 import { Todo } from './pages/todo/todo';
-
-
 export const routes: Routes = [
     {
         path:'login',
@@ -16,6 +14,7 @@ export const routes: Routes = [
         path: 'todo',
         component: Todo
     },
+
     {
         path: '',
         redirectTo: '/login',

@@ -1,1 +1,64 @@
-<app-sidebar></app-sidebar>
+<div class="todo-input-container">
+  <div class="header">
+    <h2 class="header-title">VBTodo</h2>
+  </div>
+
+  <div class="task-input-card">
+    <div class="input-row">
+      <i class="fa-solid fa-circle-plus add-icon"></i>
+      <!-- ngModel ile bir inputa yazılan değeri newTaskTitle değişkenine ata -->
+      <input type="text" placeholder="Görev Ekle" class="task-input" [(ngModel)]="newTaskTitle">
+    </div>
+
+    <div class="actions-row">
+      <div class="action-buttons">
+        <div class="action-item date-picker-container">
+          <mat-form-field appearance="fill" class="date-input-field">
+            <mat-label>Tarih Seç</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" readonly>
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        <!-- <i class="fa-regular fa-calendar-days"></i> -->
+          <span *ngIf="selectedDate">{{ selectedDate | date:'shortDate' }}</span>
+          <span *ngIf="!selectedDate">Tarih</span>
+        </div>
+
+        <div class="action-item priority-select-container">
+          <i class="fa-regular fa-star"></i>
+          <select [(ngModel)]="selectedPriority" class="priority-select" [ngClass]="getPriorityClass()">
+            <option value="none" disabled>Öncelik</option>
+            <option value="yuksek">Yüksek</option>
+            <option value="orta">Orta</option>
+            <option value="dusuk">Düşük</option>
+          </select>
+        </div>
+
+      </div>
+      <button class="add-button" (click)="addTask()">EKLE</button>
+    </div>
+
+
+  </div>
+  <div class="task-list-card">
+    <div class="task-list-header">
+    <span class="task-count">{{ tasks.length }} Görev</span>
+
+  <div class="task-list">
+  <div *ngFor="let task of tasks" class="task-item" [class.completed]="task.completed">
+    <input type="checkbox" [(ngModel)]="task.completed" />
+    <span class="task-title">{{ task.title }}</span>
+    <span class="task-date" *ngIf="task.date">{{ task.date | date: 'shortDate' }}</span>
+    <span class="task-priority" [ngClass]="{
+      'priority-yuksek': task.priority === 'yuksek',
+      'priority-orta': task.priority === 'orta',
+      'priority-dusuk': task.priority === 'dusuk'
+    }">
+      {{ task.priority !== 'none' ? task.priority : '' }}
+    </span>
+  </div>
+</div>
+</div>
+
+</div>

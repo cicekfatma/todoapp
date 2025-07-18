@@ -1,53 +1,244 @@
-.todo-layout {
-  display: flex;
-  height: 100vh;
-  font-family: sans-serif;
+/* Todo input için genel konteyner */
+.todo-input-container {
+  padding: 20px;
+  font-family: Arial, sans-serif; /* Bileşen için genel yazı tipi */
+  width: 100%;
+  min-height: 100vh; /* Arka plan rengi gri olması için Tam yüksekliği almasını sağla */
+  background-color: #f9f9f9; /* Kontrast için açık arka plan */
+
 }
 
-.sidebar {
-  width: 240px;
+/* Başlık bölümü  */
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin: 0; /* h2den varsayılan kenar boşluğu kaldırıldı */
+}
+
+/* görev girişi ve eylem düğmeleri için kart */
+.task-input-card {
   background-color: #fff;
-  border-right: 1px solid #ddd;
+  border-radius: 15px; /* Kart için yuvarlatılmış köşeler */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Derinlik için yumuşak gölge */
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
-.sidebar-header {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 25px;
+/* Giriş alanı için satır */
+.input-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee; /* Giriş alanının altında ince bir çizgi */
+  padding-bottom: 15px; /* Çizgi ile giriş alanı arasındaki boşluk */
+  margin-bottom: 15px; /* Giriş alanı ile eylem alanı arasındaki boşluk */
 }
 
-.sidebar-nav ul {
-  list-style: none;
-  padding: 0;
+.add-icon {
+  font-size: 24px; /* "Ekle dairesi" simgesi için boyut */
+  color: #999;
+  margin-right: 10px;
 }
 
-.sidebar-nav li {
-  margin-bottom: 15px;
+.task-input {
+  flex-grow: 1; /* inputa alan aç */
+  border: none;
+  outline: none; /* Focus'ta kenarlığı kaldır */
+  font-size: 18px;
+  padding: 5px 0;
+  color: #333;
+
+  &::placeholder {
+    color: #aaa; /* Placeholder metin rengi */
+  }
 }
 
-.sidebar-nav a,
-.sidebar-footer a,
-.add-list {
-  text-decoration: none;
-  color: #222;
+/* Eylem düğmeleri için satır */
+.actions-row {
+  display: flex;
+  justify-content: space-between; /* Elemanları kenarlara yay */
+  align-items: center;
+  flex-wrap: wrap; /* Küçük ekranlarda sarılmaya izin ver */
+  gap: 15px; /* Eylem düğmeleri grubu ile ekle düğmesi arasındaki boşluk */
+}
+
+/* Eylem düğmeleri için kapsayıcı */
+.action-buttons {
+  display: flex;
+  gap: 20px; /* Bireysel eylem öğeleri arasındaki boşluk */
+  flex-wrap: wrap; /* Eylem öğelerinin sarılmasına izin ver */
+}
+
+/* Bireysel eylem öğeleri için stiller */
+.action-item {
+  display: flex;
+  align-items: center;
+  color: #777;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.2s ease; /* Hover'da renk geçişi için yumuşak animasyon */
+
+  i {
+    font-size: 20px; /* Eylem öğeleri için varsayılan simge boyutu */
+    margin-right: 5px;
+  }
+
+  &:hover {
+    color: #333; /* Koyu renk hover'da */
+  }
+}
+
+/* Tarih Seçici için kapsayıcı */
+.date-picker-container {
+  /* Angular Material'ın mat-form-field görsel öğelerini gizle,
+     ancak işlevselliğini koru (tarih seçici açmak için tıklama) */
+  .mat-form-field {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none; /* Gizli alanda doğrudan fare olaylarını devre dışı bırak */
+  }
+
+  /* Eylem öğeleri için simge stilleri */
+  i {
+    margin-right: 5px;
+  }
+
+  span {
+    white-space: nowrap; /* Tarih metninin satır içinde kalmasını sağla */
+  }
+}
+
+/* Özel stiller için Öncelik Seçici kapsayıcısı */
+.priority-select-container {
+  position: relative; /* Özel açılır ok simgesi konumlandırması için */
+  display: flex;
+  align-items: center;
+}
+
+.priority-select {
+  appearance: none; /* Varsayılan tarayıcı seçim stillerini kaldır */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  background-color: transparent; /* Arka planı şeffaf yap */
+  font-size: 14px;
+  color: #777; /* Varsayılan metin rengi için seçim */
+  padding: 0 5px;
+  cursor: pointer;
+  outline: none; /* Focus'ta kenarlığı kaldır */
+
+  /* IE/Edge'de varsayılan ok simgesini gizle */
+  &::-ms-expand {
+    display: none;
+  }
+
+  /* Öncelik özel metin renkleri */
+  &.priority-yuksek {
+    color: #dc3545; /* Kırmızı Yüksek öncelik için */
+    font-weight: bold;
+  }
+  &.priority-orta {
+    color: #ffc107; /* Sarı Orta öncelik için */
+    font-weight: bold;
+  }
+  &.priority-dusuk {
+    color: #007bff; /* Mavi Düşük öncelik için */
+    font-weight: bold;
+  }
+}
+
+/* "EKLE" düğmesi için stiller */
+.add-button {
+  background-color: #1a1a1a; /* Koyu arka plan */
+  color: #fff; /* Beyaz metin */
+  border: none;
+  border-radius: 8px; /* Yuvarlatılmış köşeler */
+  padding: 12px 25px;
   font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Yumuşak hover efektleri */
+  min-width: 100px; /* Minimum genişlik, küçülmeyi önlemek için */
+
+  &:hover {
+    background-color: #333; /* Hover'da biraz daha koyu */
+    transform: translateY(-2px); /* Hafif kaldırma efekti */
+  }
+
+  &:active {
+    transform: translateY(0); /* Tıklamada orijinal konuma dön */
+  }
+}
+.task-list {
+  margin-top: 20px;
+}
+
+.task-item {
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+  transition: all 0.2s ease;
 }
 
-.sidebar-footer {
+.task-item.completed span {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.task-item .date {
+  font-size: 12px;
+  color: #888;
+}
+
+.task-item .priority {
+  font-weight: bold;
+}
+
+.task-item .priority-yuksek {
+  color: #dc3545;
+}
+
+.task-item .priority-orta {
+  color: #ffc107;
+}
+
+.task-item .priority-dusuk {
+  color: #007bff;
+}
+/* Görev listesi kartı için genel stiller */
+.task-list-card {
+  background-color: #fff;
+  border-radius: 15px; /* Kart için yuvarlatılmış köşeler */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Derinlik için yumuşak gölge */
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  margin-top: 20px;
 }
 
-.todo-content {
-  flex: 1;
-  padding: 30px;
-  background-color: #f9f9f9;
+
+/* Tamamlanan görevler için özel stiller */
+.task-item.completed {
+  background-color: #d4edda; /* Açık yeşil */
+  border-left: 5px solid #28a745; /* Sol çizgiyle vurgulama */
+  transition: background-color 0.3s ease;
 }
+/* Tamamlanan görev başlığı için özel stiller */
+.task-item.completed .task-title {
+  color: #155724; /* Daha koyu yeşil */
+  text-decoration: line-through;
+}
+
